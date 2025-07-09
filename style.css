@@ -1,0 +1,530 @@
+:root {
+    /* Cores do modo claro */
+    --background-light: #fefefe;
+    --text-color-light: #333;
+    --primary-color-light: #c8a2c8; /* Lavanda suave */
+    --secondary-color-light: #f5f5dc; /* Bege claro */
+    --accent-color-light: #90ee90; /* Verde claro */
+    --border-color-light: #ddd;
+    --button-bg-light: #c8a2c8;
+    --button-text-light: #fff;
+    --task-item-bg-light: #fefefe;
+    --box-shadow-light: rgba(0, 0, 0, 0.08);
+    --hero-overlay-light: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] {
+    /* Cores do modo escuro */
+    --background-light: #2c2c2c;
+    --text-color-light: #eee;
+    --primary-color-light: #a67fa6; /* Lavanda mais escura */
+    --secondary-color-light: #444; /* Cinza escuro */
+    --accent-color-light: #6ba36b; /* Verde escuro */
+    --border-color-light: #555;
+    --button-bg-light: #a67fa6;
+    --button-text-light: #fff;
+    --task-item-bg-light: #3a3a3a;
+    --box-shadow-light: rgba(0, 0, 0, 0.3);
+    --hero-overlay-light: rgba(0, 0, 0, 0.6);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-color-light);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Global Styles --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap; /* Permite que os itens quebrem em telas menores */
+}
+
+h2 {
+    color: var(--primary-color-light);
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-weight: 700;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.button {
+    background-color: var(--button-bg-light);
+    color: var(--button-text-light);
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Para o link se comportar como botão */
+}
+
+.button:hover {
+    background-color: var(--accent-color-light);
+    transform: translateY(-2px);
+}
+
+.section-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px var(--box-shadow-light);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color-light);
+    margin: 4rem auto;
+    width: 80%;
+}
+
+/* --- Header / Hero Section --- */
+.hero-section {
+    background: url('images/hero-bg.webp') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--hero-overlay-light);
+    z-index: 1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+}
+
+.theme-toggle-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.theme-toggle-button .icon {
+    font-size: 1.2rem;
+}
+
+.hero-text h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto 2.5rem auto;
+    color: #f0f0f0;
+}
+
+.primary-button {
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+    background-color: var(--accent-color-light); /* Verde claro para o botão principal */
+    color: var(--text-color-light); /* Texto escuro para contraste */
+}
+
+.primary-button:hover {
+    background-color: #7acc7a; /* Um tom um pouco mais escuro de verde no hover */
+}
+
+
+/* --- Main Sections --- */
+.section {
+    padding: 5rem 0;
+    background-color: var(--background-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.section:nth-of-type(odd) { /* Para seções ímpares, ajuste o background para destacar */
+    background-color: var(--secondary-color-light);
+}
+
+.section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap; /* Garante que os elementos quebrem em telas menores */
+}
+
+.section .content-left,
+.section .content-right {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* --- Navigation Menu --- */
+.navbar .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar .menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.navbar .menu li a:hover {
+    color: var(--accent-color-light);
+}
+
+
+/* Planner Section Specifics */
+.planner-section .task-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.planner-section .task-input input[type="text"] {
+    flex: 1;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color-light);
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: var(--background-light);
+    color: var(--text-color-light);
+    transition: border-color 0.3s ease;
+}
+
+.planner-section .task-input input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color-light);
+}
+
+.planner-section #task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.planner-section #task-list li {
+    background-color: var(--task-item-bg-light);
+    border: 1px solid var(--border-color-light);
+    border-radius: 5px;
+    margin-bottom: 0.8rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.planner-section #task-list li.completed {
+    text-decoration: line-through;
+    color: #888;
+    background-color: var(--background-light);
+}
+
+.planner-section #task-list li input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color-light);
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+}
+
+.planner-section #task-list li input[type="checkbox"]:checked {
+    background-color: var(--primary-color-light);
+    border-color: var(--primary-color-light);
+}
+
+.planner-section #task-list li input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: var(--button-text-light);
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.planner-section #task-list li span {
+    flex: 1;
+    font-size: 1.1rem;
+}
+
+.planner-section #task-list li .delete-task {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.planner-section #task-list li .delete-task:hover {
+    background-color: #e63946;
+}
+
+/* Tips Section Specifics */
+.tips-section .tip-box {
+    background-color: var(--task-item-bg-light);
+    border: 1px solid var(--border-color-light);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.tips-section .tip-box p {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: var(--text-color-light);
+}
+
+/* --- Boticario Section --- */
+.boticario-section .container {
+    align-items: flex-start; /* Alinha o conteúdo ao topo para melhor leitura */
+}
+
+/* --- Sobre Mim Section --- */
+.sobre-mim-section .profile-image {
+    border-radius: 50%; /* Deixa a foto de perfil circular (opcional) */
+    max-width: 200px;
+    height: auto;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-color-light);
+    color: var(--button-text-light);
+    padding: 2rem;
+    margin-top: auto;
+    box-shadow: 0 -2px 4px var(--box-shadow-light);
+    position: relative; /* Para posicionar o botão "Voltar ao Topo" */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.footer-content p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: var(--button-text-light);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color-light);
+}
+
+/* --- Back to Top Button --- */
+.back-to-top-button {
+    background-color: var(--accent-color-light);
+    color: var(--text-color-light);
+    border: none;
+    border-radius: 5px;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
+}
+
+.back-to-top-button.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top-button:hover {
+    background-color: #7acc7a;
+}
+
+/* --- Responsiveness (Atualizado para incluir menu) --- */
+@media (max-width: 992px) {
+    .hero-text h2 {
+        font-size: 2.8rem;
+    }
+
+    .hero-text p {
+        font-size: 1.1rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section .content-left,
+    .section .content-right {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .section-image {
+        margin-top: 2rem;
+    }
+
+    .reverse-order-mobile {
+        flex-direction: column-reverse; /* Inverte a ordem da imagem e texto no planner para mobile */
+    }
+
+    .reverse-order-mobile .section-image {
+        margin-bottom: 2rem;
+        margin-top: 0;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start; /* Alinha o menu à esquerda em telas menores */
+        gap: 1rem;
+    }
+
+    .navbar .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .hero-section {
+        padding: 4rem 0;
+    }
+
+    .hero-text h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .task-input {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .task-input button {
+        width: 100%;
+    }
+}
