@@ -44,7 +44,7 @@ Acesse do celular, tablet ou desktop com experiência fluida. Cores suaves (lava
 
 ## 🚀 Acesse o Projeto Online
 
-🔗 [Clique aqui para visitar no GitHub Pages](https://vanessabaldin1.github.io/ecobeautyplanner)
+🔗 [Clique aqui para visitar no GitHub Pages](https://vanessabaldin1.github.io/EcoBeautyPlanner/)
 
 ---
 
